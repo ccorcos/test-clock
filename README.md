@@ -1,6 +1,6 @@
 # Test Clock
 
-A clock for testing async code without actually having to sleep.
+A clock for testing async code without actually having to wait.
 
 ## Getting Started
 

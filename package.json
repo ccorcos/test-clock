@@ -1,16 +1,16 @@
 {
-	"name": "typescript-library",
+	"name": "@ccorcos/test-clock",
 	"version": "0.0.2",
-	"description": "boilerplate for typescript libraries",
+	"description": "A clock for testing async code without actually having to sleep.",
 	"repository": {
-		"url": "https://github.com/ccorcos/typescript-library"
+		"url": "https://github.com/ccorcos/test-clock"
 	},
 	"main": "index.js",
 	"scripts": {
 		"clean": "rm -rf build",
 		"build": "tsc",
 		"typecheck": "tsc --noEmit",
-		"test": "mocha -r tsx './src/**/*.test.ts' './src/**/*.test.tsx' --verbose",
+		"test": "mocha -r tsx './src/**/*.test.ts' --verbose",
 		"release": "./release.sh"
 	},
 	"keywords": [],
@@ -22,5 +22,9 @@
 		"mocha": "^10.2.0",
 		"tsx": "^4.1.2",
 		"typescript": "^5.2.2"
+	},
+	"dependencies": {
+		"@ccorcos/ordered-array": "^0.0.1",
+		"@rocicorp/resolver": "^1.0.1"
 	}
 }

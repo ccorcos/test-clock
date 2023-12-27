@@ -33,11 +33,19 @@ describe("TestClock", () => {
 				await sleep(10)
 				log.push(25)
 			})(),
+			(async () => {
+				await sleep(5)
+				log.push(6)
+				await sleep(10)
+				log.push(16)
+				await sleep(10)
+				log.push(26)
+			})(),
 		]
 
 		await run()
 		await Promise.all(promises)
 
-		assert.deepEqual(log, [0, 1, 4, 5, 10, 14, 15, 24, 25])
+		assert.deepEqual(log, [0, 1, 4, 5, 6, 10, 14, 15, 16, 24, 25, 26])
 	})
 })

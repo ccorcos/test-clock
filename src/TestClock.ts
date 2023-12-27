@@ -1,4 +1,4 @@
-import { insert } from "@ccorcos/ordered-array"
+import { search } from "@ccorcos/ordered-array"
 import { resolver } from "@rocicorp/resolver"
 
 export class TestClock {
@@ -8,11 +8,12 @@ export class TestClock {
 
 	sleep = (dt: number) => {
 		const { promise, resolve } = resolver()
-		insert(
-			this.timeline,
-			{ promise, resolve, t: this.t + dt },
-			(item) => item.t
-		)
+
+		const t = this.t + dt
+		const result = search(this.timeline, t, (item) => item.t)
+		const index = result.found !== undefined ? result.found + 1 : result.closest
+		const item = { promise, resolve, t: this.t + dt }
+		this.timeline.splice(index, 0, item)
 		if (this.t === Infinity) this.run()
 		return promise
 	}

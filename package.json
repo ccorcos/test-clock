@@ -1,6 +1,6 @@
 {
 	"name": "@ccorcos/test-clock",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "A clock for testing async code without actually having to wait.",
 	"repository": {
 		"url": "https://github.com/ccorcos/test-clock"

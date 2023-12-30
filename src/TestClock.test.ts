@@ -43,7 +43,7 @@ describe("TestClock", () => {
 			})(),
 		]
 
-		await run()
+		run()
 		await Promise.all(promises)
 
 		assert.deepEqual(log, [0, 1, 4, 5, 6, 10, 14, 15, 16, 24, 25, 26])
@@ -96,7 +96,7 @@ describe("TestClock", () => {
 			})(),
 		]
 
-		await run()
+		run()
 		await Promise.all(promises)
 
 		assert.deepEqual(
@@ -152,7 +152,7 @@ describe("TestClock", () => {
 			})(),
 		]
 
-		await run()
+		run()
 		await Promise.all(promises)
 
 		assert.deepEqual(

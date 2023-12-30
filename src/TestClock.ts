@@ -14,7 +14,7 @@ export class TestClock {
 		const index = result.found !== undefined ? result.found + 1 : result.closest
 		const item = { promise, resolve, t: this.t + dt }
 		this.timeline.splice(index, 0, item)
-		if (this.t === Infinity) this.run()
+		if (this.t === Infinity) setImmediate(this.run)
 		return promise
 	}
 

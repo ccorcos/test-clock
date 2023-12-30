@@ -40,7 +40,7 @@ const promises = [
 	})(),
 ]
 
-run()
+await run()
 await Promise.all(promises)
 
 assert.deepEqual(log, [0, 1, 4, 5, 10, 14, 15, 24, 25])

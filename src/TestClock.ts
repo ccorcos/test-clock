@@ -1,5 +1,5 @@
-import { search } from "@ccorcos/ordered-array"
 import { resolver } from "@rocicorp/resolver"
+import { searchLast } from "./searchLast"
 
 export class TestClock {
 	t = 0
@@ -10,7 +10,7 @@ export class TestClock {
 		const { promise, resolve } = resolver()
 
 		const t = this.t + dt
-		const result = search(this.timeline, t, (item) => item.t)
+		const result = searchLast(this.timeline, t, (item) => item.t)
 		const index = result.found !== undefined ? result.found + 1 : result.closest
 		const item = { promise, resolve, t: this.t + dt }
 		this.timeline.splice(index, 0, item)

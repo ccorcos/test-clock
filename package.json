@@ -24,7 +24,7 @@
 		"typescript": "^5.2.2"
 	},
 	"dependencies": {
-		"@ccorcos/ordered-array": "^0.0.1",
+		"@ccorcos/ordered-array": "^0.0.4",
 		"@rocicorp/resolver": "^1.0.1"
 	}
 }

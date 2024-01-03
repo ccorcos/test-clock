@@ -1,5 +1,5 @@
+import { insertAfter } from "@ccorcos/ordered-array"
 import { resolver } from "@rocicorp/resolver"
-import { searchLast } from "./searchLast"
 
 export class TestClock {
 	t = 0
@@ -9,11 +9,8 @@ export class TestClock {
 	sleep = (dt: number) => {
 		const { promise, resolve } = resolver()
 
-		const t = this.t + dt
-		const result = searchLast(this.timeline, t, (item) => item.t)
-		const index = result.found !== undefined ? result.found + 1 : result.closest
 		const item = { promise, resolve, t: this.t + dt }
-		this.timeline.splice(index, 0, item)
+		insertAfter(this.timeline, item, (item) => item.t)
 		if (this.t === Infinity) this.run() // This should never happen actually.
 		return promise
 	}
